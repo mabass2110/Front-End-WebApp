@@ -12,6 +12,7 @@ function App() {
         <Navigation/>
         <Routes>
           <Route path='/homepage' element={<HomePage/>}></Route>
+          <Route path='/createaccount/' element={<CreateAccount/>} ></Route>
         </Routes>
       </BrowserRouter>
   )
