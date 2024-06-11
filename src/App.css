@@ -37,3 +37,53 @@
   margin-right: 10px; /* Add spacing between the logo and text */
   /* Add any other styling you need for the logo */
 }
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Set minimum height for full viewport */
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+.card {
+  max-width: 500px; /* Adjust width as needed */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+.card-img-top {
+  position: relative;
+}
+
+.card-img-top::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Adjust transparency */
+}
+
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* Add some space after title */
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.5; /* Improve readability */
+  margin-bottom: 1rem; /* Add some space between paragraphs */
+}
+
+.card-text ul {
+  list-style: disc; /* Bullet points for features */
+  padding-left: 20px; /* Indent list */
+  margin-top: 0; /* Remove default top margin */
+}
