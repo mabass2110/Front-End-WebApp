@@ -5,3 +5,35 @@
   text-align: center;
 }
 
+
+.hover-effect:hover {
+  
+  text-decoration: none; /* Remove default underline */
+  border-bottom: 5px solid rgb(14, 14, 14); /* Add underline effect */
+}
+
+
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  /* Add any other styling you need for the navbar brand */
+}
+
+.navbar-logo {
+  
+  height: 30px; /* Adjust the height as needed */
+  margin-right: 10px; /* Add spacing between the logo and text */
+  /* Add any other styling you need for the logo */
+}
