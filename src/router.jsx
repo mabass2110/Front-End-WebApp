@@ -4,7 +4,6 @@ import HomePage from "./homepage";
 import CreateAccount from "./createaccount";
 import Navigation from "./navbar";
 
-
  //Routers component
 function Routers() {
     return (
