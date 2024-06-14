@@ -57,6 +57,13 @@ const Navigation = () => {
           </ul>
         </div>
 
+        <div className="justify-content-end d-flex">  {/* Added d-flex for horizontal alignment */}
+          <button>
+            <img width="16" height="16" src="https://img.icons8.com/tiny-glyph/16/bot.png" alt="Bot" />
+          </button>
+          <button>Login</button>
+        </div>
+
        
       </div>
     </nav>
