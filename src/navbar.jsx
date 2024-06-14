@@ -4,14 +4,14 @@ import Tooltip from './tooltip';
 
 
 const navItems = [
-  { text: 'Home', path: '/home', description: 'Home Page', page: 'home' },
+  { text: 'Home', path: '/homepage', description: 'Home Page', page: 'home' },
   { text: 'Create Account', path: '/createaccount/', description: 'Open a new account at online banking', page: 'createaccount' },
   { text: 'Deposit', path: '/deposit/', description: 'Put money in your actual account', page: 'deposit' },
   { text: 'Withdraw', path: '/withdraw/', description: 'Withdraw a valid amount of money available in your account', page: 'withdraw' },
   { text: 'All Data', path: '/alldata/', description: 'Display data', page: 'alldata' },
 ];
 
-const NavBar = () => {
+const Navigation = () => {
   const [activePage, setActivePage] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
   const handleMouseEnter = () => setShowTooltip(true);
@@ -46,6 +46,7 @@ const NavBar = () => {
                   onClick={() => handleClick(item.page)}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
+                  to={item.path}
                 >
                   {item.text}
                 </Link>
@@ -62,4 +63,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navigation;
