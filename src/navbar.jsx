@@ -11,7 +11,7 @@ const navItems = [
   { text: 'All Data', path: '/alldata/', description: 'Display data', page: 'alldata' },
 ];
 
-const NavBar = () => {
+const Navigation = () => {
   const [activePage, setActivePage] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
   const handleMouseEnter = () => setShowTooltip(true);
