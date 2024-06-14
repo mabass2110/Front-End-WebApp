@@ -87,3 +87,21 @@
   padding-left: 20px; /* Indent list */
   margin-top: 0; /* Remove default top margin */
 }
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -10px); /* Adjust positioning as needed */
+  background-color: #333; /* Tooltip background color */
+  color: #fff; /* Tooltip text color */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0; /* Tooltip initially hidden */
+  transition: opacity 0.2s ease-in-out; /* Add smooth fade-in/out transition */
+}
+
+.nav-item:hover .tooltip {
+  opacity: 1; /* Tooltip becomes visible on hover */
+}
