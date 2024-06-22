@@ -1,6 +1,64 @@
 import { useFormik } from "formik";
+import * as Yup from 'yup';
+
+
+
+const style = {
+    color:"red"
+}
+
+function NameInput ({id,value,errors,placeholder,handleChange,touched,onBlur}) {
+    return(
+            <div class="col">
+                <label htmlFor={id}>{placeholder}</label>
+                <input 
+                type="text"
+                className="form-control"
+                placeholder={placeholder} 
+                aria-label="First name"
+                id={id}
+                value={value}
+                onChange={handleChange}
+                onBlur = {onBlur}
+                />
+                
+                {{touched} && {errors} ? <div style={style}>{errors}</div> : null}
+            </div>
+    )
+}
+
+
+function Input( {type,placeholder,id,label,value,handleChange, errors,touched, onBlur} )  {
+    return(
+        <div className="form-floating mb-3" >
+            <input
+            type={type}
+            className="form-control"
+            id={id}
+            placeholder={placeholder}
+            value={value}
+            onChange={handleChange}
+            onBlur={onBlur}
+            />
+            <label for={id}>{label}</label> 
+            {touched && {errors} ? <div style={style}>{errors}</div> : null}
+
+        </div>
+        
+    )
+}
+
 
 const CreateAccount = () => {
+
+    const validationSchema = Yup.object().shape({
+        firstName: Yup.string().required('First name is required'),
+        lastName: Yup.string().required('Last name is required'),
+        email: Yup.string().email('Invalid email format').required('Email is required'),
+        password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+      });
+
+
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -8,93 +66,93 @@ const CreateAccount = () => {
             email: '',
             address: '',
             password: ''
-        },
+        },validationSchema,
+
         onSubmit: values => {
             alert(`The account was successfully created`);
-            // You can handle form submission logic here
         },
     });
 
     return (
-        <div className="card text-center w-100 p-3">
+        <div className="card text-center w-100 p-3" style={{ marginTop: '20px' }}>
             <div className="card-header">
                 <h5 className="card-title">Create Account</h5>
             </div>
-            <form className="card-body" onSubmit={formik.handleSubmit}>
-                <div className="row gx-5 align-items-center form-floating">
-                    <div className="col">
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="firstName"
-                            name="firstName"
-                            placeholder="First Name"
-                            value={formik.values.firstName}
-                            onChange={formik.handleChange}
+            <form className="card-body">
+                <div className="row">
+                        <NameInput
+                        type="text"
+                        id="firstName"
+                        placeholder="First Name"
+                        value={formik.values.firstName}
+                        handleChange={formik.handleChange}
+                        label="First name"
+                        errors={formik.errors.firstName}
+                        touched={formik.touched.firstName}
+                        onBlur={formik.handleBlur}
                         />
-                    </div>
-
-                    <div className="col">
-                        <input
+                    
+                        <NameInput
                             type="text"
-                            className="form-control"
                             id="lastName"
-                            name="lastName"
                             placeholder="Last Name"
                             value={formik.values.lastName}
-                            onChange={formik.handleChange}
+                            handleChange={formik.handleChange}
+                            label = "Last Name"
+                            errors={formik.errors.lastName}
+                            touched={formik.touched.lastName}
+                            onBlur={formik.handleBlur}
+
                         />
-                
-                    </div>
+                   </div>
+                   <br/>
+
+                    <div className="form-floating">
+                        <Input
+                            type="email"
+                            id="email"
+                            placeholder="name@example.com"
+                            value={formik.values.email}
+                            handleChange={formik.handleChange}
+                            label='Email'
+                            errors={formik.errors.email}
+                            touched={formik.touched.email}
+                            onBlur={formik.handleBlur}
+                        />
+
+                        
+                        <Input   
+                            type="address"
+                            id="address"
+                            placeholder="Address"
+                            value={formik.values.address}
+                            handleChange={formik.handleChange}
+                            label='Address'
+                            errors={formik.errors.address}
+                            touched={formik.touched.address}
+                            onBlur={formik.handleBlur}
+                        />
+                        
+
+                        
+                        <Input
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            value={formik.values.password}
+                            handleChange={formik.handleChange}
+                            label='Password'
+                            errors={formik.errors.password}
+                            touched={formik.touched.password}
+                            onBlur={formik.handleBlur}
+                        />
                 </div>
-
-                <br />
-
-                <div className="form-floating mb-3">
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        name="email"
-                        placeholder="name@example.com"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                    />
-                    <label htmlFor="email">Email address</label>
-                </div>
-
-                <div className="form-floating mb-3">
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="address"
-                        name="address"
-                        placeholder="Address"
-                        value={formik.values.address}
-                        onChange={formik.handleChange}
-                    />
-                    <label htmlFor="address">Address</label>
-                </div>
-
-                <div className="form-floating">
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                    />
-                    <label htmlFor="password">Password</label>
-                </div>
-
-                <br />
-                <button type="submit" className="btn btn-success">
+                <button type="submit"  className="btn btn-success">
                     Create Account
                 </button>
             </form>
         </div>
+        
     );
 };
 
