@@ -33,7 +33,13 @@ const Navigation = () => {
 
         <div className="navbar-brand roboto-bold">Online Banking</div>
 
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler"
+         type="button" 
+         data-bs-toggle="collapse" 
+         data-bs-target="#navbarNav" 
+         aria-controls="navbarNav"
+         aria-expanded="false" 
+         aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
 
@@ -59,7 +65,10 @@ const Navigation = () => {
 
         <div className="justify-content-end d-flex">  {/* Added d-flex for horizontal alignment */}
           <button>
-            <img width="16" height="16" src="https://img.icons8.com/tiny-glyph/16/bot.png" alt="Bot" />
+            <img width="16" 
+            height="16" 
+            src="https://img.icons8.com/tiny-glyph/16/bot.png" 
+            alt="Bot" />
           </button>
           <button>Login</button>
         </div>
