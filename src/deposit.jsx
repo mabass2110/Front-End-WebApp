@@ -1,11 +1,15 @@
 
-import { useState } from "react"
+import { useContext, useState } from "react"
+
+
+
+import Input from './amount_input'
+import BalanceContext from "./balance_context";
 
 const Deposit = () => {
-
-    const [balance, setBalance] = useState(0);
     const [disable, setDisable] = useState(true);
-    const [depositAmount, setDepositAmount] = useState()
+    const [depositAmount, setDepositAmount] = useState('')
+    const {balance, deposit} = useContext(BalanceContext)
 
     const handleSubmit = (e)=>{  
         e.preventDefault() 
@@ -22,7 +26,8 @@ const Deposit = () => {
         }
 
         else{
-            setBalance(balance + Number(depositAmount))
+            deposit(Number(depositAmount))
+       
         }
 
         setDepositAmount('') 
@@ -33,6 +38,7 @@ const Deposit = () => {
     const handleChange = (e)=>{
 
         let value = e.target.value
+        console.log(value)
 
         setDepositAmount(value)
 
@@ -41,24 +47,12 @@ const Deposit = () => {
     }
     
     return(
+       
         <>
-         <div className="card mb-3" >
-            <div className="card-body">
-                <h5 className="card-title text-start">Balance:{balance} $USD</h5>
-                 <form onSubmit={handleSubmit}>
-                    <div className="balance-input d-flex align-items-center">
-                        <input type="text" 
-                        style={{ marginRight: '10px' }} 
-                        value={depositAmount} 
-                        onChange={handleChange}
-                        placeholder="Enter deposit amount" 
-                        name="amount"/> 
-                        <button type="submit" disabled={disable} className="btn btn-primary" onClick={handleDeposit}>Deposit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+            
+            <Input handleSubmit={handleSubmit} operation='deposit' handleOperation={handleDeposit} handleChange={handleChange} value={depositAmount} balance={balance} disabled={disable}/>
         </>
+    
     )
 }
  
