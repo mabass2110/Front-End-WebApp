@@ -20,18 +20,13 @@ const Deposit = () => {
        if(isNaN(depositAmount)){
             alert('Please add a number!')
         }
-
         else if(depositAmount <= 0){
             alert('Please insert a positive deposit amount!');
         }
-
         else{
             deposit(Number(depositAmount))
-       
         }
-
         setDepositAmount('') 
-
         setDisable(true)
     }
 
@@ -39,9 +34,7 @@ const Deposit = () => {
 
         let value = e.target.value
         console.log(value)
-
         setDepositAmount(value)
-
         setDisable(value === '')
 
     }
@@ -50,7 +43,7 @@ const Deposit = () => {
        
         <>
             
-            <Input handleSubmit={handleSubmit} operation='deposit' handleOperation={handleDeposit} handleChange={handleChange} value={depositAmount} balance={balance} disabled={disable}/>
+            <Input handleSubmit={handleSubmit} operation='deposit'  handleOperation={handleDeposit} handleChange={handleChange} value={depositAmount} balance={balance} disabled={disable}/>
         </>
     
     )
