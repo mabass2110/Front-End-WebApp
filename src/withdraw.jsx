@@ -14,6 +14,7 @@ const Withdraw = () => {
     const handleWithdraw = (e)=> {
        
        if(isNaN(withdrawAmount)){
+            
             alert('Please add a number!')
         }
 
@@ -47,12 +48,16 @@ const Withdraw = () => {
     }
     
     return(
-       
         <>
-            
-            <Input handleSubmit={handleSubmit} operation="withdraw" handleOperation={handleWithdraw} handleChange={handleChange} value={withdrawAmount} balance={balance} disabled={disable}/>
+            <Input handleSubmit={handleSubmit} 
+                   operation="withdraw"
+                   handleOperation={handleWithdraw}
+                   handleChange={handleChange}
+                   value={withdrawAmount} 
+                   balance={balance}
+                   disabled={disable} 
+            />
         </>
-    
     )
 }
  
