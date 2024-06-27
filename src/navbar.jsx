@@ -4,7 +4,7 @@ import Tooltip from './tooltip';
 
 
 const navItems = [
-  { text: 'Home', path: '/homepage', description: 'Home Page', page: 'home' },
+  { text: 'Home', path: '/', description: 'Home Page', page: 'home' },
   { text: 'Create Account', path: '/createaccount/', description: 'Open a new account at online banking', page: 'createaccount' },
   { text: 'Deposit', path: '/deposit/', description: 'Put money in your actual account', page: 'deposit' },
   { text: 'Withdraw', path: '/withdraw/', description: 'Withdraw a valid amount of money available in your account', page: 'withdraw' },
