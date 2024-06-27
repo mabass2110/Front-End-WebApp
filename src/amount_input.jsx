@@ -1,4 +1,4 @@
-function Input({handleSubmit,operation,handleOperation,handleChange,value,balance, disabled}){
+function Input({handleSubmit, operation, handleOperation, handleChange, value, balance, disabled}){
     return(
         <>
         <div className="card mb-3" >
@@ -14,8 +14,10 @@ function Input({handleSubmit,operation,handleOperation,handleChange,value,balanc
                        name="amount"/> 
                        <button type="submit" disabled={disabled} className="btn btn-primary" onClick={handleOperation}>Deposit</button>
                    </div>
+                   
+                 
                </form>
-           </div>
+           </div>   
        </div>
        </>
    )
