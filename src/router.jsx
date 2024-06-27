@@ -14,7 +14,7 @@ function Routers() {
      <BrowserRouter>    
        <Navigation/>
        <Routes>
-         <Route path='/homepage' element={<HomePage/>}></Route>
+         <Route path='/' element={<HomePage/>}></Route>
          <Route path='/createaccount/' element={<CreateAccount/>} ></Route>
           <Route path='/deposit/' element={<BalanceProvider><Deposit /></BalanceProvider>} ></Route>
           <Route path='/withdraw/' element={<BalanceProvider><Withdraw /></BalanceProvider>} ></Route>
