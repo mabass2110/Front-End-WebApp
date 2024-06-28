@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 
 const BalanceContext = createContext({
   balance: 0,
