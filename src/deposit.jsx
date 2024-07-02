@@ -4,12 +4,13 @@ import { useContext, useState } from "react"
 
 
 import Input from './amount_input'
-import BalanceContext from "./balance_context";
+
+import AllDataContext from "./alldata_context";
 
 const Deposit = () => {
     const [disable, setDisable] = useState(true);
     const [depositAmount, setDepositAmount] = useState('')
-    const {balance, deposit} = useContext(BalanceContext)
+    const {balance, deposit} = useContext(AllDataContext)
 
     const handleSubmit = (e)=>{  
         e.preventDefault() 
@@ -31,21 +32,16 @@ const Deposit = () => {
     }
 
     const handleChange = (e)=>{
-
         let value = e.target.value
         console.log(value)
         setDepositAmount(value)
         setDisable(value === '')
-
     }
     
     return(
-       
-        <>
-            
+        <> 
             <Input handleSubmit={handleSubmit} operation='deposit'  handleOperation={handleDeposit} handleChange={handleChange} value={depositAmount} balance={balance} disabled={disable}/>
         </>
-    
     )
 }
  
