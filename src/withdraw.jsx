@@ -6,6 +6,10 @@ import AllDataContext from "./alldata_context";
 const Withdraw = () => {
     const [disable, setDisable] = useState(true);
     const [withdrawAmount, setWithdrawAmount] = useState('')
+
+    const [valid, setValid] = useState(false)
+    const [invalid,setInvalid] = useState(false)
+
     const {balance, withdraw} = useContext(AllDataContext)
 
     const handleSubmit = (e)=>{  
@@ -17,18 +21,26 @@ const Withdraw = () => {
        if(isNaN(withdrawAmount)){
             
             alert('Please add a number!')
+            setValid(false)
+            setInvalid(true)
         }
 
         else if(withdrawAmount <= 0){
             alert('Please insert a positive deposit amount!');
+            setValid(false)
+            setInvalid(true)
         }
 
         else if (balance < withdrawAmount){
             alert(`Your balance it is not enought to execute this operation`)
+            setValid(false)
+            setInvalid(true)
         }
 
         else{
             withdraw(Number(withdrawAmount))
+            setValid(true)
+            setInvalid(false)
        
         }
 
@@ -58,6 +70,8 @@ const Withdraw = () => {
                    balance={balance}
                    disabled={disable} 
             />
+            {valid && <div class="alert alert-success" role="alert"> Your withdrawal was successful.</div>}
+            {invalid && <div class="alert alert-danger" role="alert"> Error: Unable to process your withdrawl!</div>}
         </>
     )
 }
