@@ -1,11 +1,12 @@
 import { useContext, useState } from "react"
 import Input from './amount_input'
 import BalanceContext from "./balance_context";
+import AllDataContext from "./alldata_context";
 
 const Withdraw = () => {
     const [disable, setDisable] = useState(true);
     const [withdrawAmount, setWithdrawAmount] = useState('')
-    const {balance, withdraw} = useContext(BalanceContext)
+    const {balance, withdraw} = useContext(AllDataContext)
 
     const handleSubmit = (e)=>{  
         e.preventDefault() 
