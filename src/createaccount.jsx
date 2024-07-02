@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-
+import React,{useContext} from "react";
+import AllDataContext from "./alldata_context";
 
 
 const style = {
@@ -59,6 +60,9 @@ const CreateAccount = () => {
       });
 
 
+      const {setFirst,setLast,setMail,setAddr} = useContext(AllDataContext)
+
+
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -69,7 +73,12 @@ const CreateAccount = () => {
         },validationSchema,
 
         onSubmit: values => {
-            alert(`The account was successfully created`);
+            setFirst(values.firstName);
+            setLast(values.lastName);
+            setMail(values.email);
+            setAddr(values.address)
+            alert('Account successfully created')
+        
         },
     });
 
@@ -78,7 +87,7 @@ const CreateAccount = () => {
             <div className="card-header">
                 <h5 className="card-title">Create Account</h5>
             </div>
-            <form className="card-body">
+            <form className="card-body" onSubmit={formik.handleSubmit}>
                 <div className="row">
                         <NameInput
                         type="text"
@@ -147,7 +156,7 @@ const CreateAccount = () => {
                             onBlur={formik.handleBlur}
                         />
                 </div>
-                <button type="submit"  className="btn btn-success">
+                <button type="submit" className="btn btn-success">
                     Create Account
                 </button>
             </form>
