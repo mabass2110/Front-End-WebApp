@@ -4,8 +4,9 @@ import HomePage from "./homepage";
 import CreateAccount from "./createaccount";
 import Navigation from "./navbar";
 import Deposit from "./deposit";
-import BalanceProvider from "./balance_provider";
 import Withdraw from "./withdraw";
+import AllDataProvider from "./alldataprovider";
+import AllData from "./alldata";
 
 
  //Routers component
@@ -15,9 +16,11 @@ function Routers() {
        <Navigation/>
        <Routes>
          <Route path='/' element={<HomePage/>}></Route>
-         <Route path='/createaccount/' element={<CreateAccount/>} ></Route>
-          <Route path='/deposit/' element={<BalanceProvider><Deposit /></BalanceProvider>} ></Route>
-          <Route path='/withdraw/' element={<BalanceProvider><Withdraw /></BalanceProvider>} ></Route>
+         <Route path='/createaccount/' element={<AllDataProvider> <CreateAccount/> </AllDataProvider>} ></Route>
+          <Route path='/deposit/' element={<AllDataProvider> <Deposit /> </AllDataProvider>} ></Route>
+          <Route path='/withdraw/' element={<AllDataProvider> <Withdraw /> </AllDataProvider>} ></Route>
+          <Route path='/alldata/' element={<AllDataProvider> <AllData /> </AllDataProvider>} ></Route>
+        
        </Routes>
      </BrowserRouter>
  )
