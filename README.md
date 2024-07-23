@@ -1,5 +1,5 @@
 
-# React Vite Bank Project
+# Front-end Banking Project
 This project is a front-end implementation for a simple banking application using React with Vite as the build tool. It includes functionalities such as account creation, deposit, withdrawal, and displaying all account data.
 
 ## Features
