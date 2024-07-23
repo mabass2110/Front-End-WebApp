@@ -36,30 +36,16 @@ npm install
 Development
 To start the development server:
 
-00.
-
 Building for Production
 To build the project for production:
 
-##Usage
+## Usage
 Open your web browser and navigate to http://localhost:3000.
 Use the interface to create accounts, deposit funds, withdraw funds, and view all account data.
 Folder Structure
 
-Front-end-bank/
-│
-├── public/         # Public assets and index.html
-│
-├── src/            # Source code
-│   ├── components/ # React components
-│   ├── utils/      # Utility functions
-│   ├── App.jsx     # Main application component
-│   └── index.jsx   # Entry point
-│
-├── .gitignore      # Git ignore file
-├── package.json    # npm packages and scripts
-└── README.md       # Project documentation
-##Contributing
+
+## Contributing
 Feel free to contribute to this project. You can fork the repository and submit pull requests for any features or fixes you'd like to add.
 
 ## License
